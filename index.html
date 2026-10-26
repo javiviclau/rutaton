@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rutaton</title>
+    <meta name="description" content="Selecciona una zona en el mapa y obtén rutas circulares por caminos de campo de OpenStreetMap." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <aside id="panel">
+      <header>
+        <h1>Rutaton</h1>
+        <p>Rutas circulares por el campo</p>
+      </header>
+
+      <section class="step">
+        <h2><span class="num">1</span>Elige la zona</h2>
+        <div class="row">
+          <button id="draw-btn" type="button">Dibujar área</button>
+          <button id="view-btn" type="button" class="secondary">Usar vista actual</button>
+        </div>
+        <p class="hint" id="area-info">Pulsa «Dibujar área» y haz clic en dos esquinas opuestas del mapa (máx. 400 km²).</p>
+      </section>
+
+      <section class="step">
+        <h2><span class="num">2</span>Punto de salida</h2>
+        <p class="hint">
+          Haz clic en el mapa o arrastra el marcador.
+          <button id="locate-btn" type="button" class="link">Usar mi ubicación</button>
+        </p>
+      </section>
+
+      <section class="step">
+        <h2><span class="num">3</span>Distancia</h2>
+        <label class="field">
+          <span>Distancia aproximada <output id="dist-out">12 km</output></span>
+          <input id="dist" type="range" min="3" max="40" step="1" value="12" />
+        </label>
+        <label class="field inline">
+          <span>Rutas a proponer</span>
+          <select id="count">
+            <option>3</option>
+            <option selected>4</option>
+            <option>5</option>
+          </select>
+        </label>
+        <button id="routes-btn" type="button" class="primary" disabled>Proponer rutas</button>
+      </section>
+
+      <div id="status" role="status" aria-live="polite"></div>
+      <ol id="results"></ol>
+
+      <footer>
+        Mapas y caminos © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>.
+        Revisa siempre el terreno: los datos pueden no estar al día.
+      </footer>
+    </aside>
+    <div id="map"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

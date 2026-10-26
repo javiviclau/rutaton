@@ -1,0 +1,11 @@
+{
+  "name": "rutaton",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Rutas circulares por el campo sobre OpenStreetMap",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "start": "npx --yes serve -l 8080 ."
+  }
+}
